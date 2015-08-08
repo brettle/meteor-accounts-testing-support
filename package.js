@@ -3,7 +3,8 @@ Package.describe({
   version: '0.0.1',
   summary: 'Common code shared by tests in brettle:accounts-* packages.',
   git: ' git@github.com:brettle/meteor-testing-support.git',
-  documentation: 'README.md'
+  documentation: 'README.md',
+  debugOnly: true
 });
 
 Package.onUse(function(api) {

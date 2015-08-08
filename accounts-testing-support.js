@@ -1,8 +1,4 @@
-if (process.env.NODE_ENV === 'development') {
-  ['test1', 'test2'].forEach(createServiceWithName);
-} else {
-  throw Error('Test login handlers can only be registered on development servers for security reasons.');
-}
+['test1', 'test2'].forEach(createServiceWithName);
 
 function createServiceWithName(serviceName) {
   Accounts.registerLoginHandler(serviceName, function (options) {
