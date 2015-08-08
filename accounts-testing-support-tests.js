@@ -8,10 +8,35 @@ Tinytest.add('AccountsTestingSuppoort - logging in as new name creates user', fu
 
   var user = Meteor.users.findOne(testId);
   test.equal(user.services.test1.name, 'testname');
-  test.equal(user.profile.doNotOverride, 'testname');
-  test.equal(user.profile.test1_specific, 'testname');
-  test.equal(user.doNotOverrideTop, 'testname');
-  test.equal(user.test1_specific_top, 'testname');
+});
+
+Tinytest.add('AccountsTestingSuppoort - logging in as new name with docDefaults creates user with doc', function (test) {
+  var connection = DDP.connect(Meteor.absoluteUrl());
+
+  Meteor.users.remove({ 'services.test1.name': "testname" });
+  var testId = connection.call('login', {
+    test1: "testname",
+    docDefaults: {
+      profile: {
+        test: 'profile.test value'
+      },
+      emails: [{
+        address: 'emails[0].address value'
+      }],
+      services: {
+        test1: {
+          name: 'should not override options.name passed to login'
+        }
+      }
+    }
+  }).id;
+  test.isNotUndefined(testId);
+  test.isNotNull(testId);
+
+  var user = Meteor.users.findOne(testId);
+  test.equal(user.services.test1.name, 'testname');
+  test.equal(user.profile.test, 'profile.test value');
+  test.equal(user.emails[0].address, 'emails[0].address value');
 });
 
 Tinytest.add('AccountsTestingSuppoort - logging in as existing name works', function (test) {

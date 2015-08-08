@@ -13,16 +13,10 @@ function createServiceWithName(serviceName) {
       }
       var servicesObj = {};
       servicesObj[serviceName] = { name: options[serviceName] };
-      var profileObj = {
-        doNotOverride: options[serviceName] // Field shared among services
-      };
-      profileObj[serviceName + "_specific"] = options[serviceName];
-      var userObj = {
-        profile: profileObj,
-        services: servicesObj,
-        doNotOverrideTop: options[serviceName] // Field shared among services
-      };
-      userObj[serviceName + "_specific_top"] = options[serviceName];
+      var userObj = { services: servicesObj };
+      if (options.docDefaults) {
+        _.defaults(userObj, options.docDefaults);
+      }
       var newUserId = Accounts.insertUserDoc(options, userObj);
       return {
           userId: newUserId
