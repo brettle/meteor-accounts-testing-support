@@ -8,6 +8,10 @@ Tinytest.add('AccountsTestingSuppoort - logging in as new name creates user', fu
 
   var user = Meteor.users.findOne(testId);
   test.equal(user.services.test1.name, 'testname');
+  test.equal(user.profile.doNotOverride, 'testname');
+  test.equal(user.profile.test1_specific, 'testname');
+  test.equal(user.doNotOverrideTop, 'testname');
+  test.equal(user.test1_specific_top, 'testname');
 });
 
 Tinytest.add('AccountsTestingSuppoort - logging in as existing name works', function (test) {
