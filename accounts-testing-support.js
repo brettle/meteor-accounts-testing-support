@@ -20,7 +20,7 @@ function createServiceWithName(serviceName) {
       var profileObj = {
         doNotOverride: options[serviceName] // Field shared among services
       };
-      profileObj[serviceName + "-specific"] = options[serviceName];
+      profileObj[serviceName + "_specific"] = options[serviceName];
       var newUserId = Accounts.insertUserDoc(options, {
         profile: profileObj,
         services: servicesObj
