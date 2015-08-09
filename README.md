@@ -1,5 +1,6 @@
-# accounts-testing-support
-============
+# brettle:accounts-testing-support
+
+[![Build Status](https://travis-ci.org/brettle/meteor-accounts-testing-support.svg?branch=master)](https://travis-ci.org/brettle/meteor-accounts-testing-support)
 
 Common code shared by tests in brettle:accounts-* packages
 
