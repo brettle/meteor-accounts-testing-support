@@ -1,4 +1,4 @@
-Tinytest.add('AccountsTestingSuppoort - logging in as new name creates user', function (test) {
+Tinytest.add('AccountsTestingSupport - logging in as new name creates user', function (test) {
   var connection = DDP.connect(Meteor.absoluteUrl());
 
   Meteor.users.remove({ 'services.test1.name': "testname" });
@@ -10,7 +10,7 @@ Tinytest.add('AccountsTestingSuppoort - logging in as new name creates user', fu
   test.equal(user.services.test1.name, 'testname');
 });
 
-Tinytest.add('AccountsTestingSuppoort - logging in as new name with docDefaults creates user with doc', function (test) {
+Tinytest.add('AccountsTestingSupport - logging in as new name with docDefaults creates user with doc', function (test) {
   var connection = DDP.connect(Meteor.absoluteUrl());
 
   Meteor.users.remove({ 'services.test1.name': "testname" });
@@ -39,7 +39,7 @@ Tinytest.add('AccountsTestingSuppoort - logging in as new name with docDefaults 
   test.equal(user.emails[0].address, 'emails[0].address value');
 });
 
-Tinytest.add('AccountsTestingSuppoort - logging in as existing name works', function (test) {
+Tinytest.add('AccountsTestingSupport - logging in as existing name works', function (test) {
   var connection = DDP.connect(Meteor.absoluteUrl());
 
   // Create an user
