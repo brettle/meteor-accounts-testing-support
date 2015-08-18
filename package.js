@@ -1,6 +1,8 @@
+"use strict";
+
 Package.describe({
   name: 'brettle:accounts-testing-support',
-  version: '0.2.0',
+  version: '0.3.0',
   summary: 'Common code shared by tests in brettle:accounts-* packages.',
   git: 'https://github.com/brettle/meteor-testing-support.git',
   documentation: 'README.md',

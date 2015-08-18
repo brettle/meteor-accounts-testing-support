@@ -1,3 +1,4 @@
+"use strict";
 // useraccounts:core sets this to true, but we need it to be false for some
 // tests.
 Accounts.config({

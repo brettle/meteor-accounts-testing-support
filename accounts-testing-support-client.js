@@ -1,10 +1,14 @@
+"use strict";
+
 // Disable automatic anonymous users by default
-if (Package['brettle:accounts-anonymous-auto']) {
-  Package['brettle:accounts-anonymous-auto'].AccountsAnonymousAuto._enabled.set(false);
+var pkg = Package['brettle:accounts-anonymous-auto'];
+if (pkg) {
+  pkg.AccountsAnonymousAuto._enabled.set(false);
 }
 
-if (Package['useraccounts:core']) {
-  Package['useraccounts:core'].AccountsTemplates.configure({
+pkg = Package['useraccounts:core'];
+if (pkg) {
+  pkg.AccountsTemplates.configure({
     forbidClientAccountCreation: false
   });
 }

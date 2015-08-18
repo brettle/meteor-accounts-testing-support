@@ -1,3 +1,5 @@
+"use strict";
+
 ['test1', 'test2'].forEach(createServiceWithName);
 
 function createServiceWithName(serviceName) {
