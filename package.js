@@ -18,7 +18,9 @@ Package.onUse(function(api) {
   api.addFiles('accounts-testing-support-server.js', 'server');
   api.addFiles('accounts-testing-support-client.js', 'client');
   api.addFiles('accounts-testing-support.js');
-  // NOTE: Package["brettle:accounts-testing-support"].AccountsTestingSupport
+  // NOTE: This package is debugOnly, so you must use:
+  // Package["brettle:accounts-testing-support"].AccountsTestingSupport
+  // to access the following export.
   api.export('AccountsTestingSupport');
 });
 
