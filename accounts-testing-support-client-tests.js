@@ -1,4 +1,3 @@
-/* globals AccountsTestingSupport: true */
 "use strict";
 
 var AccountsTestingSupport =

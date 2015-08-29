@@ -32,4 +32,10 @@ Package.onTest(function(api) {
 
 ## Usage
 
-See `accounts-testing-support-tests.js`.
+See `accounts-testing-support-client-tests.js` and
+`accounts-testing-support-server-tests.js`. Note that this is a `debugOnly`
+package, so to access the `AccountsTestingSupport` export, you need to do:
+```javascript
+var AccountsTestingSupport =
+  Package["brettle:accounts-testing-support"].AccountsTestingSupport
+```
