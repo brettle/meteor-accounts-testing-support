@@ -1,3 +1,4 @@
+/* globals AccountsTestingSupport: true */
 "use strict";
 
 ['test1', 'test2'].forEach(createServiceWithName);
@@ -24,4 +25,20 @@ function createServiceWithName(serviceName) {
           userId: newUserId
       };
   });
+
+  // Add a <serviceName>RemoveUser method
+  var methodsObj = {};
+  methodsObj[serviceName + "RemoveUser"] = function (username) {
+    var selector = {};
+    selector['services.' + serviceName + '.name'] = username;
+    Meteor.users.remove(selector);
+  };
+  Meteor.methods(methodsObj);
 }
+
+function AccountsTestingSupportConstructor() {}
+
+_.extend(AccountsTestingSupportConstructor.prototype, {
+});
+
+AccountsTestingSupport = new AccountsTestingSupportConstructor();

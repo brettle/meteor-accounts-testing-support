@@ -2,16 +2,21 @@
 
 [![Build Status](https://travis-ci.org/brettle/meteor-accounts-testing-support.svg?branch=master)](https://travis-ci.org/brettle/meteor-accounts-testing-support)
 
-Common code shared by tests in various `brettle:accounts-*` packages
+Common code shared by tests in `brettle:accounts-*` packages
 
 ## Features
 
 - Registers test login handlers for the `test1` and `test2` services.
+- Provides client-side
+  `AccountsTestingSupport.login(serviceName, username, docDefault, callback)`
+  to login using the test1 and test2 services.
+- Provides `test1RemoveUser(username)` and `test2RemoveUser(username)` server
+  methods for removing existing users.
 - Disables `brettle:accounts-anonymous-auto` so that it won't interfere with
   other tests. The `brettle:accounts-anonymous-auto` tests re-enable it
   temporarily.
 - Explicitly enables client account creation and prevents `useraccounts:core`
-  from disabling it again, because it is needed by some tests.
+  from disabling it again, because it's needed by some tests.
 
 ## Installation
 
