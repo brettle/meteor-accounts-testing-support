@@ -39,8 +39,9 @@ Tinytest.addAsync(
       }, function (err) {
         test.isUndefined(err, 'login new error');
         test.isNotNull(Meteor.userId(), 'Meteor.userId() null after login');
-        test.isNotNull(Meteor.user(), 'Meteor.user() null after login');
-        test.equal(Meteor.user().profile.testProp, "test prop value");
+        var u = Meteor.user();
+        test.isNotNull(u, 'Meteor.user() null after login');
+        test.equal(u && u.profile && u.profile.testProp, "test prop value");
         logoutAfterLogin();
       });
     }
@@ -54,8 +55,9 @@ Tinytest.addAsync(
       AccountsTestingSupport.login("test1", "testname", {}, function (err) {
         test.isUndefined(err, 'error logging in with existing user');
         test.isNotNull(Meteor.userId(), 'Meteor.userId() null after login');
-        test.isNotNull(Meteor.user(), 'Meteor.user() null after login');
-        test.equal(Meteor.user().profile.testProp, "test prop value");
+        var u = Meteor.user();
+        test.isNotNull(u, 'Meteor.user() null after login');
+        test.equal(u && u.profile && u.profile.testProp, "test prop value");
         done();
       });
     }

@@ -2,7 +2,7 @@
 
 Package.describe({
   name: 'brettle:accounts-testing-support',
-  version: '0.4.0',
+  version: '0.4.1',
   summary: 'Common code shared by tests in brettle:accounts-* packages.',
   git: 'https://github.com/brettle/meteor-testing-support.git',
   documentation: 'README.md',
@@ -27,6 +27,8 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.versionsFrom('1.0.4');
   api.use('tinytest');
+  api.use('ddp');
+  api.use('tracker');
   api.use('brettle:accounts-anonymous-auto@0.1.0');
   api.use('brettle:accounts-testing-support');
   api.use('accounts-base');

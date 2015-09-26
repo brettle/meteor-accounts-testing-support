@@ -3,6 +3,10 @@
 
 ['test1', 'test2'].forEach(createServiceWithName);
 
+if (Accounts.removeDefaultRateLimit) {
+  Accounts.removeDefaultRateLimit();
+}
+
 function createServiceWithName(serviceName) {
   Accounts.registerLoginHandler(serviceName, function (options) {
       if (! options || ! options[serviceName]) {
