@@ -33,7 +33,10 @@ Tinytest.add(
         services: {
           test1: {
             name: 'should not override options.name passed to login'
-          }
+          },
+          other: {
+            data: 'service data'
+          }          
         }
       }
     }).id;
@@ -42,6 +45,7 @@ Tinytest.add(
 
     var user = Meteor.users.findOne(testId);
     test.equal(user.services.test1.name, 'testname');
+    test.equal(user.services.other.data, 'service data');
     test.equal(user.profile.test, 'profile.test value');
     test.equal(user.emails[0].address, 'emails[0].address value');
   }

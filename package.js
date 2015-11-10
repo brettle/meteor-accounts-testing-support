@@ -2,7 +2,7 @@
 
 Package.describe({
   name: 'brettle:accounts-testing-support',
-  version: '0.4.2',
+  version: '0.4.3',
   summary: 'Common code shared by tests in brettle:accounts-* packages.',
   git: 'https://github.com/brettle/meteor-testing-support.git',
   documentation: 'README.md',

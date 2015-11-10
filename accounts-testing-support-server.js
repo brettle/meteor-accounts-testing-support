@@ -23,6 +23,9 @@ function createServiceWithName(serviceName) {
       var userObj = { services: servicesObj };
       if (options.docDefaults) {
         _.defaults(userObj, options.docDefaults);
+        if (options.docDefaults.services) {
+          _.defaults(userObj.services, options.docDefaults.services);          
+        }
       }
       var newUserId = Accounts.insertUserDoc(options, userObj);
       return {
